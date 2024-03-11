@@ -1,0 +1,13 @@
+export { default as Feachers } from "./Feachers";
+export { default as TopTrends } from "./TopTrends";
+export { default as Pricing } from "./Pricing";
+export { default as Download } from "./Download";
+export { default as HomeSection } from "./Home1";
+export { default as TextSection } from "./TextSections";
+export { default as PricingSection1 } from "./PricingSecton1";
+export { default as FeacherSection1 } from "./FeacherSection1";
+export { default as FeacherPageSection } from "./FeacherPageSection";
+export { default as TestoNomial } from "./Testinomial";
+export { default as ContactSection1 } from "./ContactSection1";
+export { default as Contact } from "./Contact";
+export { default as EventCards } from "./Events";

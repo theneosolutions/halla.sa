@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Sarala", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+.baloo-Bhai {
+  font-family: "Baloo Bhai 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* BackGround Colors  */
+.backgroud-primary {
+  background-color: #293170;
+}
+.backgroud-secondary {
+  background-color: #bd9956;
+}
+.backgroud-3rd {
+  background-color: #dee1f5;
+}
+.backgroud-4rth {
+  background-color: #f8f9ff;
+}
+
+/* Text Colors  */
+.color-primary {
+  color: #bd9956;
+}
+.color-secondary {
+  color: white;
+}
+.color-black {
+  color: black;
+}
+.color-purpul {
+  color: #293170;
+}
+.color-3rd {
+  color: #343434;
+}
+/* Font Size  */
+
+.font-primary {
+  font-weight: 500;
+  size: 18px;
+  line-height: 27px;
+}
+.font-secondary {
+  font-weight: 400;
+  size: 10px;
+  line-height: 59px;
+}
+.font-3rd {
+  font-weight: 700;
+  size: 36px;
+}
+.font-4rth {
+  font-weight: 700;
+  size: 24px;
+}
+.font-5th {
+  font-weight: 300;
+  size: 24px;
+}
+.font-6th {
+  font-weight: 400;
+  size: 46px;
+}
+
+.border-primary {
+  border-color: #293170;
+}
+.border-secondary {
+  border-color: #bd9956;
+}
