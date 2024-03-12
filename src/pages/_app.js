@@ -1,7 +1,25 @@
 import Head from "next/head";
 import "../styles/global.css";
+import Template from "@/app/components/layouts/Template2";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const privateRoutes = [
+    "/dashboard/profile",
+    "/dashboard/earning",
+    "/dashboard/favourite",
+    "/dashboard/event-going",
+    "/dashboard/change-password",
+    "/dashboard/payment",
+    "/dashboard/text-messages",
+    "/dashboard/currency",
+    "/dashboard/language",
+    "/dashboard/linked-accounts",
+    "/dashboard",
+  ];
+
+  const privateRoutesTemplate = privateRoutes.includes(router.pathname);
   return (
     <>
       <Head>
@@ -18,7 +36,12 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <div className="screen">
-        <Component {...pageProps} />
+        {privateRoutesTemplate && (
+          <Template>
+            <Component {...pageProps} />
+          </Template>
+        )}
+        {!privateRoutesTemplate && <Component {...pageProps} />}
       </div>
     </>
   );

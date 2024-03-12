@@ -11,3 +11,4 @@ export { default as TestoNomial } from "./Testinomial";
 export { default as ContactSection1 } from "./ContactSection1";
 export { default as Contact } from "./Contact";
 export { default as EventCards } from "./Events";
+export { default as MessagesSection } from "./Messages";

@@ -9,8 +9,9 @@ import { useRouter } from "next/router";
 
 function EventDetail() {
   const router = useRouter();
-  var name = ["2", "6", "66"];
-  console.log(name.join(""));
+  var temp = [6, 6, 6, 6, 0];
+  var temp2 = temp.every((item) => item === 6);
+  console.log("temp", temp2);
   return (
     <Template1>
       <div className="flex flex-col md:flex-row  w-full justify-between ">

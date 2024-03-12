@@ -52,7 +52,10 @@ export default function Header() {
         </div>
         <div className="flex flex-row  space-x-4">
           <div className="flex flex-row backgroud-secondary py-2 items-center space-x-2 px-4 rounded-md">
-            <FaRegUserCircle className="text-2xl color-secondary" />
+            <FaRegUserCircle
+              className="text-2xl color-secondary cursor-pointer"
+              onClick={() => router.push("/dashboard/profile")}
+            />
             <FaChevronRight className="text-xl color-secondary" />
           </div>
           <div className="flex flex-row backgroud-secondary py-2 items-center space-x-2 px-4 rounded-md">
