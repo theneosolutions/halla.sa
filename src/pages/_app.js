@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Seulah - Easy Financing</title>
+        <title>Halla</title>
         <meta
           name="description"
           content="Sauleh is a forward-thinking fintech organization commited to advancing financial inclusion in saudi Arabia"
