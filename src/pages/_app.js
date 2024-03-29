@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }) {
     "/dashboard/linked-accounts",
     "/dashboard",
   ];
+  //helo
 
   const privateRoutesTemplate = privateRoutes.includes(router.pathname);
   return (
