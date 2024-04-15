@@ -62,7 +62,7 @@ const HomeData = [
     icon: <IoLinkOutline />,
   },
   {
-    route: "/dashboard",
+    route: "/login",
     name: "Sign Out",
     icon: <LiaSignOutAltSolid />,
   },

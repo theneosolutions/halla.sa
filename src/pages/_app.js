@@ -1,8 +1,10 @@
 import Head from "next/head";
 import "../styles/global.css";
+import Template3 from "@/app/components/layouts/Template3";
 import Template from "@/app/components/layouts/Template2";
 import { useRouter } from "next/router";
-
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const privateRoutes = [
@@ -36,14 +38,18 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <div className="screen">
-        {privateRoutesTemplate && (
-          <Template>
-            <Component {...pageProps} />
-          </Template>
-        )}
-        {!privateRoutesTemplate && <Component {...pageProps} />}
-      </div>
+      <Provider store={store}>
+        <Template3>
+          <div className="screen">
+            {privateRoutesTemplate && (
+              <Template>
+                <Component {...pageProps} />
+              </Template>
+            )}
+            {!privateRoutesTemplate && <Component {...pageProps} />}
+          </div>
+        </Template3>
+      </Provider>
     </>
   );
 }

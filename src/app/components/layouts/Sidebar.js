@@ -4,11 +4,27 @@ import HomeData from "./sidebarData";
 import { useRouter } from "next/router";
 import Logo from "@/assets/svgs/logo3.svg";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import * as action from "../../../redux/reducer";
+
 function App({ isOpen, toggleSidebar }) {
   const sidebarWidth = isOpen ? "w-72" : "w-0"; // Adjust sidebar width
   var paddingx = "px-8";
   const router = useRouter();
+  const dispatch = useDispatch();
 
+  function Logout() {
+    router.push("/login");
+    dispatch(
+      action.Auth({
+        user: null,
+        islogin: false,
+        token: null,
+      })
+    );
+
+    localStorage.removeItem("user");
+  }
   return (
     <div className={`flex  flex-col  backgroud-3rd   `}>
       <div
@@ -39,7 +55,9 @@ function App({ isOpen, toggleSidebar }) {
               {HomeData?.map((v, k) => {
                 return (
                   <div
-                    onClick={() => router.push(v?.route)}
+                    onClick={() =>
+                      v?.route === "/login" ? Logout() : router.push(v?.route)
+                    }
                     key={k}
                     className={`flex flex-row items-center space-x-3 cursor-pointer py-2 hover:bg-gray-300 duration-300 ${paddingx}`}
                   >

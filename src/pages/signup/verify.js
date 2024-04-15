@@ -1,10 +1,28 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button } from "@/app/components/atoms";
 import { AuthTemplate } from "@/app/components/layouts";
+import { useSearchParams } from "next/navigation";
+import * as action from "../../redux/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 function Verify() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const Code = searchParams.get("code");
+  const phone = searchParams.get("phone");
+
+  const otp = useSelector((state) => state.otpSignup);
+  const message = useSelector((state) => state.message);
+  const localMessage = useSelector((state) => state.localMessage);
+  const error = useSelector((state) => state.error);
+  const [secondsLeft, setSecondsLeft] = useState(60);
+
   const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const [inputs, setInputs] = useState(["", "", "", ""]);
+
   const handleInput = (index, e) => {
     const value = e.target.value;
     const newInputs = [...inputs];
@@ -14,10 +32,72 @@ function Verify() {
     const maxLength = parseInt(e.target.getAttribute("maxlength"), 10);
     const currentLength = value.length;
 
-    if (currentLength >= maxLength && index < inputRefs.length - 1) {
-      inputRefs[index + 1].current.focus();
+    if (e.nativeEvent.inputType === "deleteContentBackward") {
+      // Handle backspace press
+      if (currentLength === 0 && index > 0) {
+        // If current input is empty and not the first input, move focus to the previous input
+        inputRefs[index - 1].current.focus();
+      }
+    } else {
+      // Handle regular input
+      if (currentLength >= maxLength) {
+        // If input is filled
+        if (index < inputRefs.length - 1) {
+          // If not the last input, move focus to the next input
+          inputRefs[index + 1].current.focus();
+        }
+      }
     }
   };
+  useEffect(() => {
+    inputRefs[0].current.focus();
+  }, []);
+  function Verify() {
+    if (inputs.every((input) => input.trim() !== "")) {
+      const all = inputs.join("");
+      if (otp === parseInt(all)) {
+        dispatch({
+          type: "VERIFY_SIGNIN_OTP",
+          payload: {
+            callingCode: "+" + Code,
+            phoneNumber: phone,
+            otp: parseInt(all),
+          },
+        });
+      } else {
+        dispatch(
+          action.Message({
+            open: true,
+            error: true,
+            message: "Invalid Otp",
+          })
+        );
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (
+      message === "Login Successfull" &&
+      localMessage === "Login_Success" &&
+      error === false
+    ) {
+      console.log("messagemessage", message, localMessage, error);
+      router.push("/dashboard");
+    }
+  }, [message, localMessage, error]);
+
+  useEffect(() => {
+    if (!secondsLeft) return;
+    const intervalId = setInterval(() => {
+      setSecondsLeft(secondsLeft - 1);
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, [secondsLeft]);
+  function ResendCode() {
+    setSecondsLeft(60);
+    resendOtp();
+  }
   return (
     <AuthTemplate>
       <div className="md:my-8 my-44 items-center flex flex-col md:w-4/6	">
@@ -46,11 +126,27 @@ function Verify() {
           </div>
           <div className="flex flex-row justify-between pb-14 mt-4">
             <a className="text-sm">Resend your code</a>
-            <a className="text-sm">Expired after 23s</a>
+
+            {secondsLeft > 0 ? (
+              <div className="  text-sm  opacity-70">
+                {"  Expired after"}
+                <a className="text-blue-600 px-1">
+                  {secondsLeft < 60 ? `00:${secondsLeft}` : secondsLeft}
+                </a>
+              </div>
+            ) : (
+              <a
+                className="text-blue-600 hover:underline cursor-pointer"
+                onClick={() => ResendCode()}
+              >
+                {t("Resend")}
+              </a>
+            )}
           </div>
         </div>
 
         <Button
+          onClick={() => Verify()}
           value="Confirm"
           style="w-full  font-primary backgroud-secondary mt-10"
         />

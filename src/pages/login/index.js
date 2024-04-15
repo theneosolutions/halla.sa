@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Google from "@/assets/svgs/google.svg";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaRegEyeSlash } from "react-icons/fa";
@@ -7,11 +7,64 @@ import { AuthTemplate } from "@/app/components/layouts";
 import { useRouter } from "next/router";
 import { IoEyeOutline } from "react-icons/io5";
 import { MdOutlineLocalPhone } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import * as action from "../../redux/reducer";
 
 function Login() {
+  const dispatch = useDispatch();
+  const message = useSelector((state) => state.message);
+  const localMessage = useSelector((state) => state.localMessage);
+  const error = useSelector((state) => state.error);
+
   const router = useRouter();
   const [eye, setEye] = useState(false);
   const [active, setActive] = useState("email");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+
+  function SignIn() {
+    if (active === "email") {
+      if (email != "" && password != "") {
+        dispatch({
+          type: "LOGIN_WITH_EMAIL",
+          payload: {
+            emailOrUsername: email,
+            password: password,
+          },
+        });
+      } else {
+        dispatch(
+          action.Message({
+            open: true,
+            error: true,
+            message: "All Fields Required!",
+          })
+        ); // Closing the message
+      }
+    } else {
+      if (phone != "") {
+      } else {
+        dispatch(
+          action.Message({
+            open: true,
+            error: true,
+            message: "All Fields Required!",
+          })
+        ); // Closing the message
+      }
+    }
+  }
+  useEffect(() => {
+    if (
+      message === "Login Successfull" &&
+      localMessage === "Login_Success" &&
+      error === false
+    ) {
+      console.log("messagemessage", message, localMessage, error);
+      router.push("/dashboard");
+    }
+  }, [message, localMessage, error]);
   return (
     <AuthTemplate>
       <div className="md:my-8 my-44 items-center flex flex-col md:w-4/6	">
@@ -54,32 +107,36 @@ function Login() {
 
         {active === "email" && (
           <InputField
+            onChange={(e) => setEmail(e)}
             placeholder="Email address"
             heading="Email"
             style="mt-8"
             icon={<AiOutlineMail className="color-purpul text-xl" />}
           />
         )}
+        {active === "email" && (
+          <InputField
+            onChange={(e) => setPassword(e)}
+            placeholder="Password"
+            heading="Password"
+            style="mt-3"
+            type={eye ? "text" : "password"}
+            icon={
+              eye ? (
+                <IoEyeOutline
+                  className="color-purpul text-xl cursor-pointer"
+                  onClick={() => setEye(!eye)}
+                />
+              ) : (
+                <FaRegEyeSlash
+                  className="color-purpul text-xl cursor-pointer"
+                  onClick={() => setEye(!eye)}
+                />
+              )
+            }
+          />
+        )}
 
-        <InputField
-          placeholder="Password"
-          heading="Password"
-          style="mt-3"
-          type={eye ? "text" : "password"}
-          icon={
-            eye ? (
-              <IoEyeOutline
-                className="color-purpul text-xl cursor-pointer"
-                onClick={() => setEye(!eye)}
-              />
-            ) : (
-              <FaRegEyeSlash
-                className="color-purpul text-xl cursor-pointer"
-                onClick={() => setEye(!eye)}
-              />
-            )
-          }
-        />
         <div className=" flex flex-row justify-end w-full py-3">
           <a
             onClick={() => router.push("/login/forget-password")}
@@ -89,7 +146,9 @@ function Login() {
           </a>
         </div>
         <Button
-          //   onClick={() => router.push("/login/forget-password")}
+          //  onClick={() => router.push("/login/forget-password")}
+
+          onClick={() => SignIn()}
           value="Sign in"
           style="w-full  font-primary backgroud-secondary mt-10"
         />
@@ -108,7 +167,10 @@ function Login() {
         </div>
         <a className="text-sm text-gray-500 mt-5">
           Not register yet ?
-          <span className="font-semibold cursor-pointer hover:underline duration-200 mx-1">
+          <span
+            className="font-semibold cursor-pointer hover:underline duration-200 mx-1"
+            onClick={() => router.push("/signup")}
+          >
             Create an account
           </span>
         </a>
