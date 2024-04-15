@@ -96,7 +96,15 @@ function Verify() {
   }, [secondsLeft]);
   function ResendCode() {
     setSecondsLeft(60);
-    resendOtp();
+    const data = {
+      callingCode: "+" + Code,
+      phoneNumber: phone,
+    };
+    console.log("helo", data);
+    dispatch({
+      type: "SIGN_UP_WITH_PHONE",
+      payload: data,
+    });
   }
   return (
     <AuthTemplate>
@@ -139,7 +147,7 @@ function Verify() {
                 className="text-blue-600 hover:underline cursor-pointer"
                 onClick={() => ResendCode()}
               >
-                {t("Resend")}
+                {"Resend"}
               </a>
             )}
           </div>
