@@ -58,23 +58,20 @@ function* SignUpWithPhone({ payload }) {
       payload
     );
     console.log("Response", response?.data);
-    if (response?.data?.accessToken) {
-      if (response?.data?.user?.otp) {
-        yield put(
-          action.Message({
-            message: "OTP RECIEVED",
-            open: false,
-            error: false,
-            localMessage: "Otp_Recieved",
-          })
-        );
-        yield put(
-          action.Otp({
-            otp: response?.data?.user?.otp,
-          })
-        );
-      }
-    }
+
+    yield put(
+      action.Message({
+        message: "OTP RECIEVED",
+        open: false,
+        error: false,
+        localMessage: "Otp_Recieved",
+      })
+    );
+    yield put(
+      action.Otp({
+        otp: response?.data?.user?.otp,
+      })
+    );
   } catch (error) {
     yield put(
       action.Message({

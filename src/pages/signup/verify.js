@@ -55,24 +55,15 @@ function Verify() {
   function Verify() {
     if (inputs.every((input) => input.trim() !== "")) {
       const all = inputs.join("");
-      if (otp === parseInt(all)) {
-        dispatch({
-          type: "VERIFY_SIGNIN_OTP",
-          payload: {
-            callingCode: "+" + Code,
-            phoneNumber: phone,
-            otp: parseInt(all),
-          },
-        });
-      } else {
-        dispatch(
-          action.Message({
-            open: true,
-            error: true,
-            message: "Invalid Otp",
-          })
-        );
-      }
+
+      dispatch({
+        type: "VERIFY_SIGNIN_OTP",
+        payload: {
+          callingCode: "+" + Code,
+          phoneNumber: phone,
+          otp: parseInt(all),
+        },
+      });
     }
   }
 
