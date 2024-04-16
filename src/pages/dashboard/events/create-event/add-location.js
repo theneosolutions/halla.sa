@@ -60,4 +60,4 @@ function TryHalla() {
     </div>
   );
 }
-// export default TryHalla;
+export default TryHalla;
