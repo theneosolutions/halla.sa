@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Template1, Model } from "@/app/components/layouts";
+import { Model } from "@/app/components/layouts";
 import { Button } from "@/app/components/atoms";
 
 import Trend from "@/assets/svgs/trend1.svg";
@@ -8,13 +8,14 @@ import Hamd from "@/assets/svgs/hamd.svg";
 import Logo from "@/assets/svgs/logo2.svg";
 import Check from "@/assets/svgs/check.svg";
 import { useRouter } from "next/router";
-function TryHalla() {
+function PickCard({ CreateEvent }) {
   const [model1, setModel1] = useState(false);
   const [model2, setModel2] = useState(false);
   const router = useRouter();
   return (
-    <Template1>
-      <div className="my-14 md:px-14 px-2 w-full">
+    <>
+      <a className="text-3xl  font-bold">Pick Card</a>
+      <div className="my-14 md:px-4 px-2 w-full">
         <div className="relative mt-4">
           <div className="flex flex-wrap">
             {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(() => {
@@ -39,7 +40,9 @@ function TryHalla() {
             <Image src={Hamd} className="w-min " />
             <div>
               <Button
-                onClick={() => (setModel1(false), setModel2(true))}
+                onClick={() => (
+                  setModel1(false), setModel2(false), CreateEvent()
+                )}
                 value="Confirm"
                 style="w-full  font-primary backgroud-secondary mt-5"
               />
@@ -60,7 +63,10 @@ function TryHalla() {
             </a>
 
             <Button
-              onClick={() => (setModel2(false), router.push("/share"))}
+              onClick={() => (
+                setModel2(false),
+                router.push("/dashboard/events/create-event/share")
+              )}
               value="Share"
               style="w-full  font-primary backgroud-secondary mt-5"
             />
@@ -70,7 +76,7 @@ function TryHalla() {
           </div>
         </div>
       </Model>
-    </Template1>
+    </>
   );
 }
-export default TryHalla;
+export default PickCard;

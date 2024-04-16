@@ -58,7 +58,7 @@ function Signup() {
       error === false
     ) {
       console.log("messagemessage", message, localMessage, error);
-      router.push("/dashboard");
+      router.push(`/signup/verify-email?email=${email}`);
     }
   }, [message, localMessage, error]);
   return (
@@ -134,10 +134,13 @@ function Signup() {
             style="w-full    mt-4"
           />
         </div>
-        <a className="text-sm text-gray-500 mt-5">
-          New here?{" "}
-          <span className="font-semibold cursor-pointer hover:underline duration-200">
-            Create an account
+        <a className="text-sm text-gray-500 mt-5 px-1">
+          Already Have Account ?
+          <span
+            className="font-semibold cursor-pointer hover:underline duration-200 px-1"
+            onClick={() => router.push("/login")}
+          >
+            Sign In !
           </span>
         </a>
       </div>

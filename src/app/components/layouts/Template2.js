@@ -55,7 +55,7 @@ const MainLayout = ({ children, padding }) => {
             }`}
           >
             <div className="flex items-center justify-center p-3 w-full">
-              <div className="bg-white  px-5 md:px-6 lg:px-8  xl:px-8 py-5 md:py-8 lg:py-8 xl:py-8 rounded-xl shadow-md content w-full ">
+              <div className="  px-5 md:px-6 lg:px-8  xl:px-8 py-5 md:py-8 lg:py-8 xl:py-8 rounded-xl shadow-md content w-full bg-white">
                 {children}
               </div>
             </div>

@@ -4,3 +4,4 @@ export { default as PricingCard } from "./pricingCard";
 export { default as Download } from "./donwloadButton";
 export { default as FeachersPageCard } from "./FeachersPageCard";
 export { default as InputField } from "./InputField";
+export { default as Iframe } from "./iframeMap";

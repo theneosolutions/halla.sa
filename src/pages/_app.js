@@ -19,8 +19,12 @@ export default function App({ Component, pageProps }) {
     "/dashboard/language",
     "/dashboard/linked-accounts",
     "/dashboard",
+    "/dashboard/events",
+    "/dashboard/events/event-details",
+    "/dashboard/events/create-event",
+    "/dashboard/events/create-event/add-location",
+    "/dashboard/events/create-event/share",
   ];
-  //helo
 
   const privateRoutesTemplate = privateRoutes.includes(router.pathname);
   return (

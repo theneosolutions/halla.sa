@@ -34,4 +34,4 @@ function EventDetail() {
     </Template1>
   );
 }
-export default EventDetail;
+// export default EventDetail;

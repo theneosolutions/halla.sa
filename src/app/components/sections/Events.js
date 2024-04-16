@@ -7,9 +7,18 @@ import { TiLocation } from "react-icons/ti";
 import { useRouter } from "next/router";
 
 function EventCards() {
+  const router = useRouter();
   return (
     <div className="md:my-8 my-14 items-center flex flex-col w-full	">
-      <a className="text-4xl  font-bold">All Created Events</a>
+      <div className="flex flex-row justify-between w-full">
+        <a className="text-4xl  font-bold">All Created Events</a>
+        <Button
+          onClick={() => router.push("/dashboard/events/create-event")}
+          value="Create New Event"
+          style="w-max  font-primary backgroud-secondary mt-5"
+        />
+      </div>
+
       <InputField placeholder="Search" style="mt-8 w-full md:w-6/12		" />
       <div className="w-full flex flex-wrap my-10">
         <Card />
@@ -41,11 +50,11 @@ function Card() {
           <Image
             src={Image2}
             className="w-full"
-            onClick={() => router.push("/events/event-detail")}
+            onClick={() => router.push("/dashboard/events/event-details")}
           />
         </div>
         <div
-          onClick={() => router.push("/events/event-detail")}
+          onClick={() => router.push("/dashboard/events/event-details")}
           className=" flex flex-col lg:flex-row justify-between text-white text-center items-center px-5 py-6"
         >
           <div className="flex flex-col">

@@ -27,8 +27,8 @@ const HomeData = [
     icon: <MdOutlineFavoriteBorder />,
   },
   {
-    route: "/dashboard/event-going",
-    name: "Event Going",
+    route: "/dashboard/events",
+    name: "Events",
     icon: <MdOutlineEmojiEvents />,
   },
   {

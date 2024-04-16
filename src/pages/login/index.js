@@ -9,6 +9,8 @@ import { IoEyeOutline } from "react-icons/io5";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import * as action from "../../redux/reducer";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/bootstrap.css";
 
 function Login() {
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-
+  const [code, setCode] = useState("");
   function SignIn() {
     if (active === "email") {
       if (email != "" && password != "") {
@@ -40,10 +42,17 @@ function Login() {
             error: true,
             message: "All Fields Required!",
           })
-        ); // Closing the message
+        );
       }
     } else {
       if (phone != "") {
+        dispatch({
+          type: "LOGIN_WITH_PHONE",
+          payload: {
+            callingCode: "+" + code,
+            phoneNumber: phone,
+          },
+        });
       } else {
         dispatch(
           action.Message({
@@ -51,20 +60,34 @@ function Login() {
             error: true,
             message: "All Fields Required!",
           })
-        ); // Closing the message
+        );
       }
     }
   }
   useEffect(() => {
     if (
       message === "Login Successfull" &&
-      localMessage === "Login_Success" &&
+      localMessage === "Login_Success_EMAIL" &&
       error === false
     ) {
       console.log("messagemessage", message, localMessage, error);
       router.push("/dashboard");
+    } else if (
+      message === "Login Successfull" &&
+      localMessage === "Login_Success_phone_otp" &&
+      error === false
+    ) {
+      console.log("messagemessage", message, localMessage, error);
+      router.push(`/login/verify-phone?code=${code}&phone=${phone}`);
     }
   }, [message, localMessage, error]);
+
+  function onCodeChange(number, code) {
+    console.log("code", code);
+    setPhone(number);
+    setCode(code?.dialCode);
+  }
+
   return (
     <AuthTemplate>
       <div className="md:my-8 my-44 items-center flex flex-col md:w-4/6	">
@@ -97,12 +120,21 @@ function Login() {
           </div>
         </div>
         {active === "phone" && (
-          <InputField
-            placeholder="Phone Number"
-            heading="Phone"
-            style="mt-8"
-            icon={<MdOutlineLocalPhone className="color-purpul text-xl" />}
-          />
+          <div className="mt-14">
+            <PhoneInput
+              className="full-width-phone-input"
+              enableSearch={true}
+              value={phone}
+              country={"sa"}
+              onlyCountries={["pk", "sa"]}
+              onChange={(number, code) => onCodeChange(number, code)}
+              inputProps={{
+                name: "phone",
+                required: true,
+                autoFocus: true,
+              }}
+            />
+          </div>
         )}
 
         {active === "email" && (
