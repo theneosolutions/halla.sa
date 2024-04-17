@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import * as action from "../../redux/reducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import { ForgetPasswordPhoneOtp, ResetPhonePassword } from "@/redux/services";
 
 function Verify() {
   const dispatch = useDispatch();
@@ -86,16 +87,21 @@ function Verify() {
     return () => clearInterval(intervalId);
   }, [secondsLeft]);
   function ResendCode() {
-    setSecondsLeft(60);
-    const data = {
-      callingCode: "+" + Code,
-      phoneNumber: phone,
-    };
-    console.log("helo", data);
-    dispatch({
-      type: "SIGN_UP_WITH_PHONE",
-      payload: data,
-    });
+    console.log("phone", phone, Code);
+    if (Code !== "" && phone !== "") {
+      ForgetPasswordPhoneOtp({
+        callingCode: "+" + Code,
+        phoneNumber: phone,
+      })
+        .then((response) => {
+          if (response?.id) {
+            setSecondsLeft(60);
+          }
+        })
+        .catch((error) => {
+          console.log("Error", error);
+        });
+    }
   }
   return (
     <AuthTemplate>

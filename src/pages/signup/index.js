@@ -22,7 +22,7 @@ function Signup() {
             style="w-full md:w-96 font-primary backgroud-secondary "
           />
           <Button
-            value="Sign Up with Apple"
+            value="Sign Up with AppleEE"
             style="w-full md:w-96 font-primary backgroud-secondary "
           />
         </div>
