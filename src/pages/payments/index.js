@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 
 const PaymentPage = () => {
   const router = useRouter()
-  const { user, amount, description, callbackUrl } = router.query;
+  const { user, amount, description,packageId, callbackUrl } = router.query;
+  console.log("🚀 ~ PaymentPage ~ router.query:", router.query)
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -59,7 +60,8 @@ const PaymentPage = () => {
               user: Number(user),
               amount: amount,
               description: description,
-              paymentId: paymentId
+              paymentId: paymentId,
+              package: Number(packageId)
             })
           });
           if (validationResponse.ok) {
