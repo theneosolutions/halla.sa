@@ -13,7 +13,7 @@ const MapComponent = ({ setLocation, location }) => {
     });
 
     // fetch(
-    //   `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyB3fZvHRP8c7AfQUWGWLTRJqsyCFrgGQWA`
+    //   `https://maps.googleapis.com/maps/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyB3fZvHRP8c7AfQUWGWLTRJqsyCFrgGQWA`
     // )
     //   .then((response) => response.json())
     //   .then((data) => {

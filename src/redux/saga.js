@@ -10,7 +10,7 @@ function* SignUpWithEmail({ payload }) {
   try {
     const response = yield call(
       axios.post,
-      baseUrl + "/api/auth/sign-up",
+      baseUrl + "/auth/sign-up",
       payload
     );
     console.log("Response", response?.data);
@@ -54,7 +54,7 @@ function* SignUpWithPhone({ payload }) {
   try {
     const response = yield call(
       axios.post,
-      baseUrl + "/api/auth/sign-up/phone",
+      baseUrl + "/auth/sign-up/phone",
       payload
     );
     console.log("Response", response?.data);
@@ -86,7 +86,7 @@ function* LoginWithEmail({ payload }) {
   try {
     const response = yield call(
       axios.post,
-      baseUrl + "/api/auth/sign-in",
+      baseUrl + "/auth/sign-in",
       payload
     );
     if (response?.data?.accessToken) {
@@ -126,7 +126,7 @@ function* VerifySignInOtp({ payload }) {
   try {
     const response = yield call(
       axios.post,
-      baseUrl + "/api/auth/otp/verify",
+      baseUrl + "/auth/otp/verify",
       payload
     );
     console.log("Response", response?.data);
@@ -170,7 +170,7 @@ function* CreateEvent({ payload }) {
   try {
     const response = yield call(
       axiosInstance.post,
-      baseUrl + `/api/events/upload-event-image`,
+      baseUrl + `/events/upload-event-image`,
       formData,
       {
         headers: {
@@ -186,7 +186,7 @@ function* CreateEvent({ payload }) {
 
     const response2 = yield call(
       axiosInstance.post,
-      baseUrl + "/api/events",
+      baseUrl + "/events",
       Object
     );
     console.log("Response", response2?.data);
@@ -209,7 +209,7 @@ function* VerifySignInEmailOtp({ payload }) {
   try {
     const response = yield call(
       axios.post,
-      baseUrl + "/api/auth/otp/verify/email",
+      baseUrl + "/auth/otp/verify/email",
       payload
     );
     if (response?.data?.accessToken) {
@@ -248,7 +248,7 @@ function* LoginWithPhone({ payload }) {
   try {
     const response = yield call(
       axios.post,
-      baseUrl + "/api/auth/sign-in/phone",
+      baseUrl + "/auth/sign-in/phone",
       payload
     );
     yield put(

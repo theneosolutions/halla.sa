@@ -5,7 +5,7 @@ async function ForgetPasswordEmailOtp(body) {
   console.log("body", body);
   try {
     const response = await axiosInstance.post(
-      baseUrl + `/api/auth/forgot-password`,
+      baseUrl + `/auth/forgot-password`,
       body
     );
     return response.data;
@@ -21,7 +21,7 @@ async function ResetEmailPassword(body) {
   console.log("bodyddddd", body);
   try {
     const response = await axiosInstance.post(
-      baseUrl + `/api/auth/reset-password`,
+      baseUrl + `/auth/reset-password`,
       body
     );
     return response.data;
@@ -36,7 +36,7 @@ async function ForgetPasswordPhoneOtp(body) {
   console.log("body", body);
   try {
     const response = await axiosInstance.post(
-      baseUrl + `/api/auth/otp/resend`,
+      baseUrl + `/auth/otp/resend`,
       body
     );
     return response.data;
@@ -52,7 +52,7 @@ async function ResetPhonePassword(body) {
   console.log("bodyddddd", body);
   try {
     const response = await axiosInstance.post(
-      baseUrl + `/api/auth/reset-password/phone`,
+      baseUrl + `/auth/reset-password/phone`,
       body
     );
     return response.data;

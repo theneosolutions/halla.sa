@@ -50,7 +50,7 @@ const PaymentPage = () => {
         if (response.ok) {
           const paymentData = await response.json();
           const paymentId = paymentData.id;
-          const validationResponse = await fetch(`https://backend.halla.sa/api/transactions`, {
+          const validationResponse = await fetch(`https://backendcode.halla.sa/transactions`, {
             method: 'POST',
             headers: {
               'Accept': 'application/json',
