@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "@redux-saga/core/effects";
 import * as action from "./reducer";
-var baseUrl = "https://backendcode.halla.sa/";
+var baseUrl = "https://backendcode.halla.sa";
 import axios from "axios";
 
 import { axiosInstance } from "./auth";
