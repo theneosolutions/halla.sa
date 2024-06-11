@@ -1,5 +1,5 @@
 import { axiosInstance } from "./auth";
-var baseUrl = "https://backendcode.halla.sa";
+var baseUrl = "https://backendcode.halla.sa/";
 
 async function ForgetPasswordEmailOtp(body) {
   console.log("body", body);
