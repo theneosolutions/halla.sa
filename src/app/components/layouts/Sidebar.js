@@ -83,14 +83,23 @@ function App({ isOpen, toggleSidebar }) {
         <div className=" w-full flex flex-row justify-between">
           <div className="w-1/2 px-10 flex flex-col items-center ">
             <CiLogout className="text-8xl text-gray-300" />
-            <a className="text-white text-lg mt-5">Logout</a>
-            <a className="text-xs text-white opacity-80">Are You Sure ?</a>
 
-            <Button
-              onClick={() => Logout()}
-              value="Logout"
-              style="w-full  font-primary backgroud-secondary mt-5"
-            />
+            <a className="text-lg text-white opacity-80 w-full text-center my-4">
+              Are You Sure you want <br /> to Logout ?
+            </a>
+
+            <div className="flex flex-row justify-between w-full space-x-3 md:space-x-7">
+              <Button
+                onClick={() => setModel2(false)}
+                value="No"
+                style="w-full  font-primary backgroud-secondary mt-5"
+              />
+              <Button
+                onClick={() => Logout()}
+                value="Yes"
+                style="w-full  font-primary backgroud-secondary mt-5"
+              />
+            </div>
           </div>
           <div className=" w-1/2 items-center justify-center flex">
             <Image src={Logo2} className="max-h-64" />

@@ -1,11 +1,14 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InputField, Button } from "@/app/components/atoms";
 import { CiEdit } from "react-icons/ci";
 import Image from "next/image";
+import { User } from "@/functions/user";
 function Dashboard() {
   const fileInputRef = useRef(null); // Create a ref for the file input
   const [image, setImage] = useState(null);
   const [image2, setImage2] = useState(null);
+  const [user, setUser] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   function handleClick() {
     fileInputRef.current.click();
@@ -30,6 +33,14 @@ function Dashboard() {
       }
     }
   }
+  useEffect(() => {
+    if (User()?.user) {
+      setUser(User()?.user);
+      console.log("User()?.user", User()?.user);
+    }
+  }, []);
+  console.log("user", user);
+  function onInputChange() {}
   return (
     <div className="">
       <div className="flex flex-col">
@@ -52,54 +63,104 @@ function Dashboard() {
         </div>
       </div>
       <div className="w-full">
-        <Header style="mt-10" value="Personal Information" />
+        <Header
+          style="mt-10"
+          value="Personal Information"
+          editable={true}
+          onClick={() => setDisabled(!disabled)}
+          disabled={disabled}
+        />
         <div className="flex md:flex-row flex-col md:space-x-10 mt-4">
           <div className="w-full md:w-1/2 ">
             <InputField
+              disabled={disabled}
+              value={user?.firstName}
               placeholder="First Name"
               style=" w-full "
               heading="First Name"
+              onChange={() => onInputChange()}
             />
           </div>
           <div className="w-full md:w-1/2 ">
             <InputField
+              disabled={disabled}
+              value={user?.lastName}
               placeholder="Last Name"
               style=" w-full "
               heading="Last Name"
+              onChange={() => onInputChange()}
             />
           </div>
         </div>
         <div className="flex md:flex-row flex-col md:space-x-10 mt-4">
           <div className="w-full md:w-1/2 ">
-            <InputField placeholder="Email" style=" w-full " heading="Email" />
+            <InputField
+              disabled={disabled}
+              placeholder="Email"
+              style=" w-full "
+              heading="Email"
+              value={user?.email}
+              onChange={() => onInputChange()}
+            />
           </div>
           <div className="w-full md:w-1/2 ">
             <InputField
-              placeholder="Date of birth"
+              disabled={disabled}
+              placeholder="User Name"
               style=" w-full "
-              heading="Date of birth"
+              heading="User Name"
+              value={user?.username}
+              onChange={() => onInputChange()}
             />
           </div>
         </div>
       </div>
 
       <div className="w-full">
-        <Header style="mt-10" value="Contact Personal" />
+        <Header style="mt-10" value="Acount Detail" />
         <div className="flex md:flex-row flex-col md:space-x-10 mt-4">
           <div className="w-full md:w-1/2 ">
             <InputField
-              placeholder="Phone Number"
+              disabled={true}
+              value={user?.status}
+              placeholder="Status"
               style=" w-full "
-              heading="Phone Number"
+              heading="Status"
             />
           </div>
           <div className="w-full md:w-1/2 ">
-            <InputField placeholder="Email" style=" w-full " heading="Email" />
+            <InputField
+              disabled={true}
+              placeholder="Reference Code"
+              style=" w-full "
+              heading="Reference Code"
+              value={user?.referenceCode}
+            />
+          </div>
+        </div>
+        <div className="flex md:flex-row flex-col md:space-x-10 mt-4">
+          <div className="w-full md:w-1/2 ">
+            <InputField
+              disabled={true}
+              value={user?.wallet}
+              placeholder="Wallet"
+              style=" w-full "
+              heading="Wallet"
+            />
+          </div>
+          <div className="w-full md:w-1/2 ">
+            <InputField
+              disabled={true}
+              placeholder="Role"
+              style=" w-full "
+              heading=" Role"
+              value={user?.roles}
+            />
           </div>
         </div>
       </div>
 
-      <div className="w-full">
+      {/* <div className="w-full">
         <Header style="mt-10" value="Education Qualification" />
         <div className="flex md:flex-row flex-col md:space-x-10 mt-4">
           <div className="w-full md:w-1/2 ">
@@ -129,7 +190,7 @@ function Dashboard() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-col md:flex-row justify-center items-center md:space-x-6 mt-10 space-y-3 md:space-y-0">
         <Button value="Update" style="backgroud-secondary w-full md:w-52" />
         <div className="border-red-500 w-full md:w-52 border rounded-tl-xl rounded-br-xl py-1.5 px-4   text-center">
@@ -146,14 +207,19 @@ function Dashboard() {
   );
 }
 export default Dashboard;
-function Header({ style, value }) {
+function Header({ style, value, editable, onClick, disabled }) {
   return (
     <div className={`flex flex-row justify-between ${style}`}>
       <h1 className="font-primary opacity-90 ">{value}</h1>
-      <div className="border border-gray-200 rounded-md flex flex-row items-center space-x-2 px-2 text-gray-500">
-        <CiEdit className="" />
-        <a className=" text-sm">Edit</a>
-      </div>
+      {editable && (
+        <div
+          className="border border-gray-200 rounded-md flex flex-row items-center space-x-2 px-2 text-gray-500 hover:bg-gray-100 duration-200 cursor-pointer"
+          onClick={() => onClick()}
+        >
+          <CiEdit className="" />
+          <a className=" text-sm"> {disabled ? "Edit" : "Edititable"} </a>
+        </div>
+      )}
     </div>
   );
 }
