@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 
 const PaymentPage = () => {
   const router = useRouter()
-  const { user, amount, description, callbackUrl } = router.query;
+  const { user, amount, description,packageId, callbackUrl } = router.query;
+  console.log("🚀 ~ PaymentPage ~ router.query:", router.query)
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const PaymentPage = () => {
         if (response.ok) {
           const paymentData = await response.json();
           const paymentId = paymentData.id;
-          const validationResponse = await fetch(`https://backend.halla.sa/api/transactions`, {
+          const validationResponse = await fetch(`https://backendcode.halla.sa/transactions`, {
             method: 'POST',
             headers: {
               'Accept': 'application/json',
@@ -59,7 +60,8 @@ const PaymentPage = () => {
               user: Number(user),
               amount: amount,
               description: description,
-              paymentId: paymentId
+              paymentId: paymentId,
+              package: Number(packageId)
             })
           });
           if (validationResponse.ok) {

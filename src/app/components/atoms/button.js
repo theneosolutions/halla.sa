@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
 
-function Button({ value, style, onClick, variation, icon }) {
+function Button({ value, style, onClick, variation, icon, disabled = false }) {
   const handleClick = () => {
     if (onClick && typeof onClick === "function") {
-      onClick();
+      if (disabled) {
+      } else {
+        onClick();
+      }
     }
   };
   return (
@@ -12,7 +15,11 @@ function Button({ value, style, onClick, variation, icon }) {
       {!variation ? (
         <div
           onClick={handleClick}
-          className={` text-center  px-6 py-2 color-secondary rounded-tl-xl rounded-br-xl cursor-pointer hover:opacity-90 duration-300 hover:shadow-xl ${style} `}
+          className={` text-center  px-6 py-2 color-secondary rounded-tl-xl rounded-br-xl   duration-300 ${
+            !disabled
+              ? "hover:shadow-xl cursor-pointer hover:opacity-90"
+              : "opacity-70"
+          } ${style} `}
         >
           <a>{value}</a>
         </div>

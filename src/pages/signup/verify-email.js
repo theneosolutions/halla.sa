@@ -5,17 +5,14 @@ import { useSearchParams } from "next/navigation";
 import * as action from "../../redux/reducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { ForgetPasswordPhoneOtp, ResetPhonePassword } from "@/redux/services";
 
 function Verify() {
   const dispatch = useDispatch();
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  const Code = searchParams.get("code");
-  const phone = searchParams.get("phone");
+  const email = searchParams.get("email");
 
-  const otp = useSelector((state) => state.otpSignup);
   const message = useSelector((state) => state.message);
   const localMessage = useSelector((state) => state.localMessage);
   const error = useSelector((state) => state.error);
@@ -58,10 +55,9 @@ function Verify() {
       const all = inputs.join("");
 
       dispatch({
-        type: "VERIFY_SIGNIN_OTP",
+        type: "VERIFY_SIGNIN_EMAIL_OTP",
         payload: {
-          callingCode: "+" + Code,
-          phoneNumber: phone,
+          email: email,
           otp: parseInt(all),
         },
       });
@@ -87,28 +83,23 @@ function Verify() {
     return () => clearInterval(intervalId);
   }, [secondsLeft]);
   function ResendCode() {
-    console.log("phone", phone, Code);
-    if (Code !== "" && phone !== "") {
-      ForgetPasswordPhoneOtp({
-        callingCode: "+" + Code,
-        phoneNumber: phone,
-      })
-        .then((response) => {
-          if (response?.id) {
-            setSecondsLeft(60);
-          }
-        })
-        .catch((error) => {
-          console.log("Error", error);
-        });
-    }
+    // setSecondsLeft(60);
+    // const data = {
+    //   callingCode: "+" + Code,
+    //   phoneNumber: phone,
+    // };
+    // console.log("helo", data);
+    // dispatch({
+    //   type: "SIGN_UP_WITH_PHONE",
+    //   payload: data,
+    // });
   }
   return (
     <AuthTemplate>
       <div className="md:my-8 my-44 items-center flex flex-col md:w-4/6	">
         <a className="text-4xl  font-bold">Verify</a>
         <a className="text-sm mt-6 text-gray-500 justify-center text-center ">
-          Please enter the verification code <br /> sent to your phone number
+          Please enter the verification code <br /> sent to your Email
         </a>
         <div className="my-10 mt-14 w-72 border border-gray-300 rounded-tl-2xl rounded-br-2xl px-4 py-4 text-sm color-purpul">
           <a className="text-sm">Your Code</a>

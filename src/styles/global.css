@@ -87,3 +87,11 @@ body {
 .border-secondary {
   border-color: #bd9956;
 }
+.full-width-phone-input .form-control {
+  width: 100%; /* Ensures the input field is full width */
+  border: 2px solid blue; /* Example to set border width and color */
+}
+
+.full-width-phone-input .form-control:focus {
+  border-color: darkblue; /* Change border color on focus */
+}
