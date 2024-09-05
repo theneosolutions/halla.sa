@@ -19,12 +19,12 @@ export default function Header() {
           >
             Home
           </a>
-          <a
+          {/* <a
             onClick={() => router.push("/try-halla")}
             className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
           >
             Try HALLA Invitation
-          </a>
+          </a> */}
           <a
             onClick={() => router.push("/feachers")}
             className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
@@ -43,18 +43,18 @@ export default function Header() {
           >
             Contact Us
           </a>
-          <a
+          {/* <a
             onClick={() => router.push("/events")}
             className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
           >
             Events
-          </a>
+          </a> */}
         </div>
         <div className="flex flex-row  space-x-4">
-          <div className="flex flex-row backgroud-secondary py-2 items-center space-x-2 px-4 rounded-md">
+          {/* <div className="flex flex-row backgroud-secondary py-2 items-center space-x-2 px-4 rounded-md">
             <FaRegUserCircle className="text-2xl color-secondary" />
             <FaChevronRight className="text-xl color-secondary" />
-          </div>
+          </div> */}
           <div className="flex flex-row backgroud-secondary py-2 items-center space-x-2 px-4 rounded-md">
             <a className="color-secondary">Language</a>
             <GoGlobe className="text-2xl color-secondary" />

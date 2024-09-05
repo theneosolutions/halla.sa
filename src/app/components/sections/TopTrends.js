@@ -1,5 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
-import Trend from "@/assets/svgs/trend1.svg";
+import Trend1 from "@/assets/svgs/trend1.svg";
+import Trend2 from "@/assets/svgs/trend2.svg";
+import Trend3 from "@/assets/svgs/trend3.svg";
+import Trend4 from "@/assets/svgs/trend4.svg";
+import Trend5 from "@/assets/svgs/trend5.svg";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -50,18 +54,21 @@ function TopTrends() {
   return (
     <div className="my-14 md:px-14 px-2 w-full">
       <div className="text-center color-black">
-        <a className="text-2xl font-semibold color-purpul">Top Trends</a>
+        <a className="text-2xl font-semibold color-purpul">Quick Overview</a>
       </div>
       <div className="relative mt-4">
         <div className="slider-container">
           <Slider ref={sliderRef} {...settings}>
-            {[...Array(5)].map((_, index) => (
+            {data.map((item, index) => (
               <div
                 key={index}
                 className="w-full items-center flex flex-row justify-center md:w-1/2 lg:w-1/3 xl:w-1/5 p-2"
               >
                 <div className=" flex flex-row items-center justify-center">
-                  <Image src={Trend} alt={`Trend bg-green-400 ${index + 1}`} />
+                  <Image
+                    src={item.image}
+                    alt={`Trend bg-green-400 ${index + 1}`}
+                  />
                 </div>
               </div>
             ))}
@@ -87,3 +94,21 @@ function TopTrends() {
 }
 
 export default TopTrends;
+
+const data = [
+  {
+    image: Trend1,
+  },
+  {
+    image: Trend2,
+  },
+  {
+    image: Trend3,
+  },
+  {
+    image: Trend4,
+  },
+  {
+    image: Trend5,
+  },
+];

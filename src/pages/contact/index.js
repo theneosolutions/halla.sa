@@ -8,9 +8,9 @@ import {
 export default function ContactPage() {
   return (
     <Template1>
-      <ContactSection1 />
+      {/* <ContactSection1 /> */}
       <Contact />
-      <TestoNomial />
+      {/* <TestoNomial /> */}
     </Template1>
   );
 }

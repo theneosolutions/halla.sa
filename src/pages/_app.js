@@ -5,11 +5,12 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Seulah - Easy Financing</title>
+        <title>Halla - Invitations</title>
         <meta
           name="description"
           content="Sauleh is a forward-thinking fintech organization commited to advancing financial inclusion in saudi Arabia"
         />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link

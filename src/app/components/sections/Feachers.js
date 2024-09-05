@@ -1,10 +1,12 @@
 import React from "react";
 import { FeachersCard } from "../atoms";
-import Gear from "@/assets/svgs/gear.svg";
-import Message from "@/assets/svgs/message.svg";
-import Location from "@/assets/svgs/location.svg";
-import Notification from "@/assets/svgs/notification.svg";
-import Recycle from "@/assets/svgs/recycle.svg";
+
+import Location from "@/assets/svgs/c1_location.png";
+import Tracking from "@/assets/svgs/c2_tracking.png";
+import Invite from "@/assets/svgs/c3_invite.png";
+import Guest from "@/assets/svgs/c4_guest.png";
+import Message from "@/assets/svgs/c5_message.png";
+import Qr from "@/assets/svgs/c6_qr.png";
 
 function Feachers() {
   return (
@@ -16,11 +18,12 @@ function Feachers() {
         </a>
       </div>
       <div className="flex flex-wrap mt-5">
-        <FeachersCard icon={Gear} text="24/7 Service" />
-        <FeachersCard icon={Message} text="Messages" />
-        <FeachersCard icon={Location} text="Invite Wde Range" />
-        <FeachersCard icon={Notification} text="Alerts" />
-        <FeachersCard icon={Recycle} text="Design Cards" />
+        <FeachersCard icon={Location} text="Address Validation" />
+        <FeachersCard icon={Tracking} text="RSVP Tracking" />
+        <FeachersCard icon={Invite} text="Invite Reminders" />
+        <FeachersCard icon={Guest} text="Guest Listing" />
+        <FeachersCard icon={Message} text="Proper Messaging" />
+        <FeachersCard icon={Qr} text="Scan Codes" />
       </div>
     </div>
   );

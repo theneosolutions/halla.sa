@@ -4,7 +4,7 @@ import Button from "./button";
 function PricingCard({ data }) {
   return (
     <div className="w-full md:w-1/3  p-3 justify-center flex ">
-      <div className=" backgroud-3rd   flex flex-col rounded-tl-3xl rounded-br-3xl w-full md:w-9/12	justify-between">
+      <div className=" backgroud-3rd   flex flex-col rounded-md w-full md:w-9/12	justify-between">
         <div className=" py-7">
           <ul className="list-disc ml-4 color-purpul text-sm  px-4 space-y-3">
             {data?.map((v, k) => {

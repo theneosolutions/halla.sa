@@ -21,13 +21,13 @@ function Footer() {
               Home
             </a>
             <a className="font-5th px-3 cursor-pointer hover:underline w-max">
-              Log In
+              Features
             </a>
             <a className="font-5th px-3 cursor-pointer hover:underline w-max">
-              Halla Invitations
+              Pricing
             </a>
             <a className="font-5th px-3 cursor-pointer hover:underline w-max">
-              Testimonials
+              Contact Us
             </a>
           </div>
           <div className="flex flex-col space-y-4 md:mt-0 mt-10">
@@ -42,17 +42,53 @@ function Footer() {
           </div>
           <div className="flex flex-col space-y-4 md:mt-0 mt-10">
             <a className="font-4rth px-3"> Follows Us</a>
-            <a className="font-5th px-3 cursor-pointer hover:underline w-max">
+            <a
+              className="font-5th px-3 cursor-pointer hover:underline w-max"
+              onClick={() =>
+                window.open(
+                  "https://www.facebook.com/hallainvitesofficial/",
+                  "_blank",
+                  "noreferrer"
+                )
+              }
+            >
               Facebook
             </a>
-            <a className="font-5th px-3 cursor-pointer hover:underline w-max">
+            <a
+              className="font-5th px-3 cursor-pointer hover:underline w-max"
+              onClick={() =>
+                window.open(
+                  "https://twitter.com/hallainvites",
+                  "_blank",
+                  "noreferrer"
+                )
+              }
+            >
               Twitter
             </a>
-            <a className="font-5th px-3 cursor-pointer hover:underline w-max">
+            <a
+              className="font-5th px-3 cursor-pointer hover:underline w-max"
+              onClick={() =>
+                window.open(
+                  "https://www.instagram.com/hallainvitesofficial",
+                  "_blank",
+                  "noreferrer"
+                )
+              }
+            >
               Instagram
             </a>
-            <a className="font-5th px-3 cursor-pointer hover:underline w-max">
-              Youtube
+            <a
+              className="font-5th px-3 cursor-pointer hover:underline w-max"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/company/hallainvitesofficial/",
+                  "_blank",
+                  "noreferrer"
+                )
+              }
+            >
+              Linedin
             </a>
           </div>
         </div>

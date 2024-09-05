@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa6";
 import { SiApple } from "react-icons/si";
 import MobileDummy from "@/assets/svgs/mobileDummy.svg";
 import Image from "next/image";
-
+import halla from "../../../assets/halla.gif";
 function Feachers() {
   return (
     <div className=" mt-20 md:px-20 px-2  w-full flex flex-col md:flex-row justify-between items-center">
@@ -29,7 +29,11 @@ function Feachers() {
         </div>
       </div>
       <div className="">
-        <Image src={MobileDummy} />
+        <Image
+          src={halla}
+          unoptimized
+          className="h-[600px] w-min border-t-8 border-l-8 border-r-8 border-primary rounded-t-3xl md:mr-20"
+        />
       </div>
     </div>
   );

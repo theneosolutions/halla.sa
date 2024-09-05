@@ -11,7 +11,7 @@ function HomeSection() {
         <Image src={HomeBack} className="w-full " />
       </div>
       <div className="relative flex  flex-col md:flex-row items-center">
-        <div className="w-3/4	">
+        <div className="w-3/4 h-min	">
           <Image src={HomeMobiles} />
         </div>
         <div className="w-full md:w-1/4 flex flex-col items-start	px-4">
