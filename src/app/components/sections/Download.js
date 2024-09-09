@@ -7,7 +7,7 @@ import Image from "next/image";
 import halla from "../../../assets/halla.gif";
 function Feachers() {
   return (
-    <div className=" md:px-10 lg:px-20 px-4  w-full flex flex-col md:flex-row justify-between items-center space-x-3 md:h-screen mt-[950px] md:mt-0">
+    <div className=" md:px-10 lg:px-20 px-4  w-full flex flex-col md:flex-row justify-between items-center space-x-3 md:h-screen mt-[950px] md:mt-20 bg-gray-200">
       <div className="md:w-4/12 w-full ">
         <div className="color-black">
           <a className="font-4rth font-semibold color-black leading-7">

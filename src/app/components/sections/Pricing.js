@@ -7,7 +7,7 @@ function Pricing() {
   return (
     <Element name="pricing">
       <div className="relative h-screen ">
-        <Image src={Payment} className="absolute z-0" />
+        <Image src={Payment} className="absolute z-0 w-full" />
         <div className="my-14 md:px-14 px-2 w-full relative py-10 z-10">
           <div className="text-center md:py-10 py-2">
             {/* Added z-index to ensure text is on top of the image */}
