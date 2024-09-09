@@ -12,13 +12,14 @@ function FeacherPageSection() {
     <div className="my-14 md:px-14 px-2  w-full">
       <div className="px-10 w-full text-center  color-black my-6 ">
         <div className=" text-center  color-black  my-5">
-          <a className="text-2xl font-semibold color-purpul">Features</a>
+          <a className="text-2xl font-semibold color-purpul">
+            Experience the best features for Online Invitations!
+          </a>
         </div>
         <a className="font-4rth leading-8 mt-10">
-          A platform for hosts to communicate event details, updates, and
-          announcements to
-          <br />
-          guests, such as changes in venue or schedule.
+          Manage your invitations beautifully and professionally with Halla App.
+          With automated <br /> invites and reminders, keep your guests informed
+          of the venue location, event timings, <br /> and much more…
         </a>
       </div>
       <div className="flex flex-wrap justify-between    md:px-14">

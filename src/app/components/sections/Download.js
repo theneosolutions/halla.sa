@@ -7,8 +7,8 @@ import Image from "next/image";
 import halla from "../../../assets/halla.gif";
 function Feachers() {
   return (
-    <div className=" mt-20 md:px-20 px-2  w-full flex flex-col md:flex-row justify-between items-center">
-      <div>
+    <div className=" md:px-10 lg:px-20 px-4  w-full flex flex-col md:flex-row justify-between items-center space-x-3 md:h-screen mt-[950px] md:mt-0">
+      <div className="md:w-4/12 w-full ">
         <div className="color-black">
           <a className="font-4rth font-semibold color-black leading-7">
             Allows users to send up to three event <br /> reminders before the
@@ -28,11 +28,11 @@ function Feachers() {
           />
         </div>
       </div>
-      <div className="">
+      <div className="w-full md:w-8/12">
         <Image
           src={halla}
           unoptimized
-          className="h-[600px] w-min border-t-8 border-l-8 border-r-8 border-primary rounded-t-3xl md:mr-20"
+          className="border-8  border-primary rounded-3xl md:mr-20"
         />
       </div>
     </div>

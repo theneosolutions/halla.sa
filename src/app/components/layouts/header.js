@@ -4,6 +4,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import { GoGlobe } from "react-icons/go";
 import { useRouter } from "next/router";
+import { Link as ScrollLink, Element } from "react-scroll";
 export default function Header() {
   const router = useRouter();
   return (
@@ -13,36 +14,42 @@ export default function Header() {
           <Image className="h-20 p-1" src={Logo} alt="Halla Logo" priority />
         </div>
         <div className=" space-x-2 md:space-x-8">
-          <a
-            onClick={() => router.push("/")}
-            className="color-secondary font-primary  duration-300 hover:shadow-xl cursor-pointer hover:underline"
-          >
-            Home
-          </a>
+          <ScrollLink offset={0} to={"home"} smooth={true} duration={500}>
+            <span className="color-secondary font-primary  duration-300 hover:shadow-xl cursor-pointer hover:underline">
+              Home
+            </span>
+          </ScrollLink>
+
           {/* <a
             onClick={() => router.push("/try-halla")}
             className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
           >
             Try HALLA Invitation
           </a> */}
-          <a
-            onClick={() => router.push("/feachers")}
-            className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
-          >
-            Features
-          </a>
-          <a
-            onClick={() => router.push("/pricing")}
-            className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
-          >
-            Pricing
-          </a>
-          <a
-            onClick={() => router.push("/contact")}
-            className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
-          >
-            Contact Us
-          </a>
+          <ScrollLink offset={-50} to={"feachers"} smooth={true} duration={500}>
+            <span className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline">
+              Features
+            </span>
+          </ScrollLink>
+
+          <ScrollLink offset={50} to={"pricing"} smooth={true} duration={500}>
+            <span
+              // onClick={() => router.push("/pricing")}
+              className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+            >
+              Pricing
+            </span>
+          </ScrollLink>
+
+          <ScrollLink offset={0} to={"contact"} smooth={true} duration={500}>
+            <span
+              // onClick={() => router.push("/contact")}
+              className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+            >
+              Contact Us
+            </span>
+          </ScrollLink>
+
           {/* <a
             onClick={() => router.push("/events")}
             className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"

@@ -6,17 +6,24 @@ import {
   Download,
   HomeSection,
   TextSection,
+  Contact,
 } from "@/app/components/sections";
-
+import { Link as ScrollLink, Element } from "react-scroll";
 export default function Home() {
   return (
-    <Template1>
-      <HomeSection />
-      <TextSection />
-      <Feachers />
-      <TopTrends />
-      <Pricing />
-      <Download />
-    </Template1>
+    <Element name="home">
+      <Template1>
+        <HomeSection />
+        <TextSection />
+        <Feachers />
+        <TopTrends />
+
+        <Pricing />
+
+        <Download />
+
+        <Contact />
+      </Template1>
+    </Element>
   );
 }
