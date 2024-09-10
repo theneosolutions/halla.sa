@@ -10,8 +10,11 @@ import Qr from "@/assets/svgs/c6_qr.png";
 import { Link as ScrollLink, Element } from "react-scroll";
 function Feachers() {
   return (
-    <Element name="feachers">
-      <div className="my-14 md:px-14 px-2  w-full">
+    <Element
+      name="feachers"
+      className=" px-2 md:px-6 lg:px-9  xl:px-20 2xl:px-20"
+    >
+      <div className="my-14   w-full ">
         <div className=" text-center  color-black  ">
           <a className="text-2xl font-semibold color-purpul">
             Powerful Features to Fully Customize <br /> Your Online Cards and

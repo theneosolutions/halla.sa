@@ -6,18 +6,18 @@ import { Link as ScrollLink, Element } from "react-scroll";
 function Pricing() {
   return (
     <Element name="pricing">
-      <div className="relative h-screen ">
+      <div className="relative  ">
         <Image src={Payment} className="absolute z-0 w-full" />
-        <div className="my-14 md:px-14 px-2 w-full relative py-10 z-10">
+        <div className="my-14  w-full relative py-10 z-10 px-3 md:px-7 lg:px-8 xl:px-6">
           <div className="text-center md:py-10 py-2">
             {/* Added z-index to ensure text is on top of the image */}
             <a className="text-2xl font-semibold text-white relative z-20 ">
               Choose the plan that’s right for you
             </a>
           </div>
-          <div className="flex flex-wrap mt-5">
+          <div className="flex flex-wrap mt-5 ">
             {data4?.map((v, k) => {
-              return <PricingCard key={k} data={v} />;
+              return <PricingCard key={k} data={v} index={k} />;
             })}
           </div>
         </div>

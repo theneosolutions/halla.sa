@@ -52,22 +52,24 @@ function TopTrends() {
   };
 
   return (
-    <div className="my-14 md:px-14 px-2 w-full ">
+    <div className="my-14 px-5 md:px-14 lg:px-20  xl:px-16 2xl:px-16  w-full ">
       <div className="text-center color-black">
         <a className="text-2xl font-semibold color-purpul">Invitation Cards</a>
       </div>
-      <div className="relative mt-4">
+      <div className="relative mt-4 ">
         <Slider ref={sliderRef} {...settings}>
           {data.map((item, index) => (
             <div
               key={index}
-              className="flex items-center justify-center w-full p-2"
+              className={`flex items-center justify-center w-full p-2 ${
+                index % 2 && ""
+              }`}
             >
-              <div className="flex items-center justify-center w-full h-full">
+              <div className="flex items-center justify-center w-full h-full ">
                 <Image
                   src={item.image}
                   alt={`Trend ${index + 1}`}
-                  className="mx-auto" // Ensures image is centered
+                  className="-ml-5" // Ensures image is centered
                 />
               </div>
             </div>
@@ -75,16 +77,16 @@ function TopTrends() {
         </Slider>
         <div className="button-container">
           <button
-            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-primary text-secondary px-2 py-1 rounded md:-ml-10 hover:opacity-85 cursor-pointer duration-300 z-10"
+            className="absolute text-white backgroud-primary top-1/2 left-0 transform -translate-y-1/2 bg-primary text-secondary px-1.5 py-1 rounded md:-ml-6 hover:opacity-85 cursor-pointer duration-300 z-10"
             onClick={goToPrev}
           >
             <GrFormPreviousLink className="text-2xl" />
           </button>
           <button
-            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-primary text-secondary px-2 py-1 rounded md:-mr-10 hover:opacity-85 cursor-pointer duration-300 z-10"
+            className="absolute backgroud-primary top-1/2 right-0 transform -translate-y-1/2 bg-primary text-secondary px-1.5 py-1 rounded md:-mr-6 hover:opacity-85 cursor-pointer duration-300 z-10"
             onClick={goToNext}
           >
-            <GrFormNextLink className="text-2xl" />
+            <GrFormNextLink className="text-2xl text-white" />
           </button>
         </div>
       </div>

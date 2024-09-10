@@ -5,12 +5,15 @@ import Image from "next/image";
 import { Link as ScrollLink, Element } from "react-scroll";
 function Contact() {
   return (
-    <Element name="contact">
-      <div className="  py-10 w-full flex flex-col md:flex-row px-4 md:px-14 my-10">
-        <div className="w-full md:w-1/2 ">
+    <Element
+      name="contact"
+      className="mt-10 lg:mt-0 px-4 md:px-10 lg:px-14 xl:px-24"
+    >
+      <div className="py-10 w-full flex flex-col lg:flex-row  my-10 items-center lg:space-x-10 ">
+        <div className="w-full lg:w-1/3 xl:w-1/2 items-center flex flex-col  ">
           <Image src={World} />
         </div>
-        <div className="w-full md:w-1/2 rounded-xl backgroud-primary items-center  justify-center flex flex-col py-10 h-min mt-8 md:mt-0">
+        <div className="w-full lg:w-8/12 rounded-xl backgroud-primary items-center  justify-center flex flex-col py-10 h-min mt-8 md:mt-0  ">
           <a className="text-2xl color-secondary">Get In Touch</a>
           <a className="color-secondary text-sm text-center mt-2">
             Please complete the following information and a member of our

@@ -2,12 +2,15 @@ import React from "react";
 import Button from "./button";
 import Tick from "../../../assets/svgs/tick.svg";
 import Image from "next/image";
-function PricingCard({ data }) {
-  console.log("vvvvv", data);
+function PricingCard({ data, key, index }) {
   return (
-    <div className="w-full md:w-1/3  p-3 justify-center flex ">
-      <div className=" bg-white hover:bg-gray-50 cursor-pointer duration-300 border border-gray-100  shadow-xl flex flex-col rounded-2xl w-full md:w-9/12	justify-between">
-        <div className=" py-3 px-3">
+    <div
+      className={`w-full md:w-1/3  p-2 lg:p-3 justify-center  flex  ${
+        index === 2 && ""
+      }`}
+    >
+      <div className=" bg-white hover:bg-gray-50 cursor-pointer duration-300 border border-gray-100  shadow-xl flex flex-col rounded-2xl w-full md:w-full lg:w-11/12 xl:w-9/12	justify-between">
+        <div className="py-2 md:py-2 lg:py-3 px-2 md:px-2 lg:px-3">
           <div className=" bg-gray-200 rounded-xl flex flex-col text-center">
             <a className="text-sm opacity-90 mt-6 mb-1">{data?.name}</a>
             <a className="font-extrabold text-3xl">{data?.price}</a>
@@ -16,7 +19,7 @@ function PricingCard({ data }) {
             </a>
             <a className="text-xs   opacity-70 font-thin mb-6">{data?.money}</a>
           </div>
-          <ul className="list-disc ml-4 color-purpul text-sm space-y-7 mt-5">
+          <ul className="list-disc md:ml-2 lg:ml-4 color-purpul text-sm space-y-7 mt-5">
             {data?.content?.map((v, k) => {
               return (
                 <div className="flex flex-row space-x-3">

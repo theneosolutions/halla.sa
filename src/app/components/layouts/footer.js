@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="backgroud-primary px-5  md:px-20 py-14 color-secondary ">
+    <div className="backgroud-primary px-5  md:px-10 lg:px-14 xl:px-24 py-14 color-secondary ">
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/2">
           <h1 className="font-4rth">Subscribe to Our Newsletter!</h1>
