@@ -5,7 +5,8 @@ function Template1({ children }) {
   return (
     <div className="w-full">
       <Header />
-      {children}
+      <div className="pt-20 sm:pt-0 ">{children}</div>
+
       <Footer />
     </div>
   );

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  max-width: 1650px; /* Adjust this value to control the maximum width */
+  margin: 0 auto; /* Center the container */
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Sarala", sans-serif;
   font-weight: 400;
@@ -15,12 +21,45 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-:root {
-  max-width: 1536px; /* Adjust this value to control the maximum width */
-  margin: 0 auto; /* Center the container */
-  box-sizing: border-box;
+.hamburger {
+  @apply cursor-pointer w-7 h-12 relative;
+  transition: all 0.25s;
 }
+
+.hamburger__top-bun,
+.hamburger__bottom-bun {
+  @apply absolute w-6 h-0.5 bg-white;
+  content: "";
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger:hover .hamburger__top-bun,
+.hamburger:hover .hamburger__bottom-bun {
+  @apply bg-white;
+}
+
+.hamburger__top-bun {
+  transform: translateY(-5px);
+}
+
+.hamburger__bottom-bun {
+  transform: translateY(3px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(-1px);
+}
+
+.open .hamburger__top-bun {
+  transform: rotate(45deg) translateY(0px);
+}
+
+.open .hamburger__bottom-bun {
+  transform: rotate(-45deg) translateY(0px);
+}
+
 .baloo-Bhai {
   font-family: "Baloo Bhai 2", sans-serif;
   font-optical-sizing: auto;
