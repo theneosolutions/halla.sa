@@ -31,7 +31,10 @@ export default function Header() {
             </div>
             <div className=" space-x-2 md:space-x-8 ">
               <ScrollLink offset={0} to={"home"} smooth={true} duration={500}>
-                <span className="color-secondary font-primary  duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                <span
+                  className="color-secondary font-primary  duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                  onClick={() => router.push("/")}
+                >
                   Home
                 </span>
               </ScrollLink>
@@ -68,6 +71,13 @@ export default function Header() {
                   Contact Us
                 </span>
               </ScrollLink>
+
+              <span
+                onClick={() => router.push("/termsandconditions")}
+                className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+              >
+                Terms & Conditions
+              </span>
             </div>
             <div className="flex flex-row  space-x-4 ">
               <div className="flex flex-row backgroud-secondary py-2 items-center space-x-2 px-4 rounded-md">
@@ -107,7 +117,10 @@ export default function Header() {
                     smooth={true}
                     duration={500}
                   >
-                    <span className="color-secondary font-primary  duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                    <span
+                      onClick={() => router.push("/")}
+                      className="color-secondary font-primary  duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                    >
                       Home
                     </span>
                   </ScrollLink>
