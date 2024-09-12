@@ -16,16 +16,16 @@ export default function Header() {
   return (
     <header
       id="top"
-      className="w-full flex flex-col  absolute sm:relative z-50"
+      className=" flex flex-row backgroud-primary fixed  z-50 max-w-[1700px] w-full"
     >
       <nav
         id="site-menu"
-        className={`  w-full justify-between items-center sm:px-0 md:px-4 py-1 sm:py-0  backgroud-primary   ${
+        className={`  w-full justify-between items-center sm:px-0 md:px-4 py-1 sm:py-0     ${
           isNavSticky ? "nav-sticky" : ""
         }`}
       >
         <div className="w-full ">
-          <header className="px-20 py-2 backgroud-primary hidden sm:flex flex-col lg:flex-row justify-between items-center">
+          <header className="sm:px-5 md:px-6 lg:px-12 xl:px-20 py-2  hidden sm:flex flex-col sm:flex-row justify-between items-center">
             <div className="" rounded-md>
               <Image className="h-20 " src={Logo} alt="Halla Logo" priority />
             </div>
