@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
         <title>Halla - Invitations</title>
         <meta
           name="description"
-          content="Sauleh is a forward-thinking fintech organization commited to advancing financial inclusion in saudi Arabia"
+          content="Effortlessly plan events and manage guests with Halla. Whether it's gatherings, parties, meetings, or more, our app simplifies the entire process, making event organization seamless and stress-free."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
