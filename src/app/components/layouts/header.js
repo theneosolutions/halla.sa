@@ -72,12 +72,12 @@ export default function Header() {
                 </span>
               </ScrollLink>
 
-              <span
+              {/* <span
                 onClick={() => router.push("/termsandconditions")}
                 className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
               >
                 Terms & Conditions
-              </span>
+              </span> */}
             </div>
             <div className="flex flex-row  space-x-4 ">
               <div className="flex flex-row backgroud-secondary py-2 items-center space-x-2 px-4 rounded-md">

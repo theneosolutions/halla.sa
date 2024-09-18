@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useRouter } from "next/router";
 function Footer() {
+  const router = useRouter();
   return (
     <div className="backgroud-primary px-5  md:px-10 lg:px-14 xl:px-24 py-14 color-secondary ">
       <div className="flex flex-col md:flex-row">
@@ -17,7 +18,19 @@ function Footer() {
         <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-between mt-10 md:mt-0">
           <div className="flex flex-col space-y-4 ">
             <a className="font-4rth px-3"> Quick Links</a>
-            <a className="font-5th px-3 cursor-pointer hover:underline w-max">
+            <a
+              onClick={() => router.push("/termsandconditions")}
+              className="font-5th px-3 cursor-pointer hover:underline w-max"
+            >
+              Terms & Conditions
+            </a>
+            <a
+              onClick={() => router.push("/privacy")}
+              className="font-5th px-3 cursor-pointer hover:underline w-max"
+            >
+              Privacy
+            </a>
+            {/* <a className="font-5th px-3 cursor-pointer hover:underline w-max">
               Home
             </a>
             <a className="font-5th px-3 cursor-pointer hover:underline w-max">
@@ -28,7 +41,7 @@ function Footer() {
             </a>
             <a className="font-5th px-3 cursor-pointer hover:underline w-max">
               Contact Us
-            </a>
+            </a> */}
           </div>
           <div className="flex flex-col space-y-4 md:mt-0 mt-10">
             <a className="font-4rth px-3"> Support</a>
