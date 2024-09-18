@@ -25,10 +25,10 @@ function Footer() {
               Terms & Conditions
             </a>
             <a
-              onClick={() => router.push("/privacy")}
+              onClick={() => router.push("/privacy-policy")}
               className="font-5th px-3 cursor-pointer hover:underline w-max"
             >
-              Privacy
+              Privacy Policy
             </a>
             {/* <a className="font-5th px-3 cursor-pointer hover:underline w-max">
               Home
