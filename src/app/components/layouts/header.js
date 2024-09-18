@@ -27,7 +27,13 @@ export default function Header() {
         <div className="w-full ">
           <header className="sm:px-5 md:px-6 lg:px-12 xl:px-20 py-2  hidden sm:flex flex-col sm:flex-row justify-between items-center">
             <div className="" rounded-md>
-              <Image className="h-20 " src={Logo} alt="Halla Logo" priority />
+              <Image
+                className="h-20 cursor-pointer"
+                src={Logo}
+                alt="Halla Logo"
+                priority
+                onClick={() => router.push("/")}
+              />
             </div>
             <div className=" space-x-2 md:space-x-8 ">
               <ScrollLink offset={0} to={"home"} smooth={true} duration={500}>
@@ -45,7 +51,10 @@ export default function Header() {
                 smooth={true}
                 duration={500}
               >
-                <span className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                <span
+                  onClick={() => router.pathname !== "/" && router.push("/")}
+                  className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                >
                   Features
                 </span>
               </ScrollLink>
@@ -56,7 +65,10 @@ export default function Header() {
                 smooth={true}
                 duration={500}
               >
-                <span className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                <span
+                  onClick={() => router.pathname !== "/" && router.push("/")}
+                  className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                >
                   Pricing
                 </span>
               </ScrollLink>
@@ -67,7 +79,10 @@ export default function Header() {
                 smooth={true}
                 duration={500}
               >
-                <span className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                <span
+                  onClick={() => router.pathname !== "/" && router.push("/")}
+                  className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                >
                   Contact Us
                 </span>
               </ScrollLink>
@@ -102,10 +117,11 @@ export default function Header() {
                 </button>
                 <div className="" rounded-md>
                   <Image
-                    className="h-14 "
+                    className="h-14 cursor-pointer"
                     src={Logo}
                     alt="Halla Logo"
                     priority
+                    onClick={() => router.push("/")}
                   />
                 </div>
               </div>
@@ -131,7 +147,12 @@ export default function Header() {
                     smooth={true}
                     duration={500}
                   >
-                    <span className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                    <span
+                      onClick={() =>
+                        router.pathname !== "/" && router.push("/")
+                      }
+                      className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                    >
                       Features
                     </span>
                   </ScrollLink>
@@ -142,7 +163,12 @@ export default function Header() {
                     smooth={true}
                     duration={500}
                   >
-                    <span className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                    <span
+                      onClick={() =>
+                        router.pathname !== "/" && router.push("/")
+                      }
+                      className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                    >
                       Pricing
                     </span>
                   </ScrollLink>
@@ -154,7 +180,12 @@ export default function Header() {
                     duration={500}
                     // onClick={()=>setIsNavOpen(false)}
                   >
-                    <span className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline">
+                    <span
+                      onClick={() =>
+                        router.pathname !== "/" && router.push("/")
+                      }
+                      className="color-secondary font-primary duration-300 hover:shadow-xl cursor-pointer hover:underline"
+                    >
                       Contact Us
                     </span>
                   </ScrollLink>

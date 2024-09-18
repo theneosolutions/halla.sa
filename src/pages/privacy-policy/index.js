@@ -84,7 +84,7 @@ export default function Home() {
 
           <Paragraph
             heading="Contact Us"
-            dis="If you have any questions or concerns about this Privacy Policy, please contact us."
+            dis="If you have any questions or concerns regarding this Privacy Policy, please don’t hesitate to contact us at info@halla.sa"
           />
         </div>
       </Template1>
